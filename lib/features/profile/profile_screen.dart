@@ -49,13 +49,14 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     List<String> inactiveFloatingButtonList = [
       '/profile/list_orders',
     ];
-    final myRoute = AutoRouter.of(context);
 
     return Scaffold(
       floatingActionButton: inactiveFloatingButtonList.contains(childRouter)
           ? null
           : InkWell(
-              onTap: () => myRoute.push(ProfileRoute(children: [ListOrdersRoute()])),
+              onTap: () => context.navigateTo(ProfileRoute(
+                children: [ListOrdersRoute(extendedCard: true)],
+              )),
               child: Stack(
                 children: [
                   SvgPicture.asset(ImgsControllerService.routeForm.url()),

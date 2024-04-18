@@ -16,11 +16,11 @@ class ExpertsPage extends StatefulWidget {
 class _ExpertsPageState extends State<ExpertsPage> {
   @override
   Widget build(BuildContext context) {
-    final myRoute = AutoRouter.of(context);
-
     return Scaffold(
       floatingActionButton: InkWell(
-        onTap: () => myRoute.push(ListOrdersRoute()),
+        onTap: () => context.navigateTo(ProfileRoute(
+          children: [ListOrdersRoute(extendedCard: true)],
+        )),
         child: Stack(
           children: [
             SvgPicture.asset(ImgsControllerService.routeForm.url()),
